@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar color="secondary">
+  <ion-toolbar color="tertiary" >
    
-    <ion-title>My Listings</ion-title>
+    <ion-title align = "center">My Listings</ion-title>
     <ion-buttons slot="end">
       
       <ion-option><ion-button (click)="CreatePopover()" color="primary"> <ion-icon name="log-out-outline"></ion-icon></ion-button></ion-option>
@@ -11,9 +11,28 @@
 </ion-header>
 
 <ion-content>
+  <ion-segment color="primary"> 
+    <ion-segment-button value="Allow"> 
+    Allow
+    </ion-segment-button> 
+    <ion-segment-button value="Deny"> 
+    Deny
+    </ion-segment-button> 
+    </ion-segment> 
   
-  <ion-searchbar animated placeholder="Search Listings"></ion-searchbar>
-
+    <ion-header> 
+      <ion-toolbar color="primary"> 
+      <ion-searchbar (input)="getItems($event)"></ion-searchbar> 
+      </ion-toolbar> 
+      </ion-header> 
+      <ion-content color="light">
+      <ion-list>
+      <ion-item color="secondary"><ion-label>Detective and Mystery.</ion-label></ion-item>
+      <ion-item color="secondary"><ion-label>Fantasy</ion-label></ion-item>
+      <ion-item color="secondary"><ion-label>Historical Fiction</ion-label></ion-item>
+      <ion-item color="secondary"><ion-label>Horror</ion-label></ion-item>
+      </ion-list>
+      </ion-content> 
   <div class="main_content_div">
    
 
