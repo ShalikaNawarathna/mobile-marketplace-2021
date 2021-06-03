@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+   
+    <ion-title>Home</ion-title>
+    <ion-buttons slot="end">
+        
+        <ion-option><ion-button (click)="CreatePopover()" color="primary"> <ion-icon name="log-out-outline"></ion-icon></ion-button></ion-option>
+        
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="padding" color="light">
+
+  <ion-searchbar animated placeholder="Search Listings"></ion-searchbar>
+
+  <div class="main_content_div">
+   
+    <div class="card_div2" *ngFor="let item of data">
+      <div class="tymbooker_image" 
+        [style.backgroundImage]="'url(' +item.photoUrl+ ')'"></div>
+   
+      <div style="padding-left: 10px;">
+        <ion-label class="tymbooker_name">{{item.title}}</ion-label>
+        <ion-label class="date">{{item.description}}</ion-label>
+        <ion-label class="date">{{item.price}}</ion-label>
+      
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>
