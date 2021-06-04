@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="tertiary" >
+   
+    <ion-title align = "center">My Listings</ion-title>
+    <ion-buttons slot="end">
+      
+      <ion-option><ion-button (click)="CreatePopover()" color="primary"> <ion-icon name="log-out-outline"></ion-icon></ion-button></ion-option>
+      
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment color="primary"> 
+    <ion-segment-button value="Allow"> 
+    Allow 213
+    </ion-segment-button> 
+    <ion-segment-button value="Deny"> 
+    Deny
+    </ion-segment-button> 
+    </ion-segment> 
+  
+    <ion-header> 
+      <ion-toolbar color="primary"> 
+      <ion-searchbar (input)="getItems($event)"></ion-searchbar> 
+      </ion-toolbar> 
+      </ion-header> 
+      <ion-content color="light">
+      <ion-list>
+      <ion-item color="secondary"><ion-label>Detective and Mystery.</ion-label></ion-item>
+      <ion-item color="secondary"><ion-label>Fantasy</ion-label></ion-item>
+      <ion-item color="secondary"><ion-label>Historical Fiction</ion-label></ion-item>
+      <ion-item color="secondary"><ion-label>Horror</ion-label></ion-item>
+      </ion-list>
+      </ion-content> 
+  <div class="main_content_div">
+   
+
+    <div class="card_div2" *ngFor="let item of data">
+      <div class="tymbooker_image" 
+        [style.backgroundImage]="'url(' +item.photoUrl+ ')'"></div>
+   
+
+
+
+      <div style="padding-left: 10px;">
+        <ion-label class="tymbooker_name">{{item.title}}</ion-label>
+        <ion-label class="date">{{item.description}}</ion-label>
+        <ion-label class="date">{{item.price}}</ion-label>
+      
+      </div>
+    </div>
+
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="addNewListing()">
+    <ion-fab-button color="secondary">
+      <ion-icon name="add" mode="md"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
