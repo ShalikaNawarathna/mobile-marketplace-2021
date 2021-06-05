@@ -32,12 +32,12 @@
             background-repeat: no-repeat;
             background-size: cover;
             border-radius: 30%;
-            box-shadow: 0 4px 8px 0 rgba(0, 238, 255, 0.2), 0 6px 20px 0 rgba(3, 49, 255, 0.19);
+            box-shadow: 0 8px 8px 0 rgba(0, 238, 255, 0.2), 0 8px 20px 0 rgba(3, 49, 255, 0.19);
         }
 
         .tymbooker_name{
-            color: var(--ion-color-secondary);
-            font-size: 18px;
+            color: var(--ion-color-primary);
+            font-size: 25px;
             font-weight: 600;
         }
         .date{
