@@ -10,13 +10,20 @@
     }
     .login-name{
         margin: 10px;
-        font-size: 1.7rem;
-        color: var(--ion-color-secondary);
-    }
-    .subTitle{
-        margin: 10px;
-        font-size: 1rem;
-    }
+        font-size: 2.0rem;
+        font-style: italic;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #000080;
+        font-weight: var(--ion-background-color);
+        }
+    
+}
+
+.subTitle{
+    margin: 10px;
+    font-size: 1rem;
+    color: #2F4F4F;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .btn_class{
@@ -40,6 +47,7 @@ ion-item{
      --ion-background-color:#f3f3f3;
     border-radius: 5px !important;
     margin-top: 10px;
+    margin-left: 1px;
     
 }
 
@@ -50,6 +58,10 @@ ion-item{
         font-weight: bold;
    }
 } 
+.forget
+{
+    text-align: center;
+}
 
 .error-message1{
 padding-right:25px;

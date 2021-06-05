@@ -3,11 +3,11 @@
 <ion-content class="ion-padding">
   <div class="login-logo">
     <img src="assets/icon/favicon.png" class="logo_icon"> 
-    <p class="login-name"> Mobile Marketplace</p>
-    <p class="subTitle"> Enter your login detail to access your account</p>
+    <p class="login-name"> Welcome to Mobile Marketplace</p>
   </div>
   <form #loginForm="ngForm" novalidate>
     <ion-list lines="none">
+      <p class="subTitle"> Enter your login details below</p>
       <ion-item lines="none">
         <ion-input [(ngModel)]="login.email" placeholder="Email" name="email" #email="ngModel" spellcheck="false"
           autocapitalize="off" required>
@@ -24,7 +24,7 @@
 
     <ion-row class="ion-no-margin ion-no-padding">
       <ion-col class="ion-no-margin ion-no-padding">
-        <ion-button class="btn_class" color="secondary" (click)="onLogin(loginForm)" type="submit" expand="block">Log in
+        <ion-button class="btn_class" color="tertiary" (click)="onLogin(loginForm)" type="submit" expand="block">Log in
         </ion-button>
         <label class="error-message1">{{errorMessage}}</label>
 
@@ -32,6 +32,10 @@
     </ion-row>
 
   </form>
+  <div class="forget">
+    <a href="#forgetPassword" >Forget Your password</a>
+   </div> 
+
   <p class="createAcc" (click)="register()">Don't have an account?
     <span class="registerTag">Sign up</span>
   </p>
