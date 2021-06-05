@@ -32,7 +32,7 @@
             background-repeat: no-repeat;
             background-size: cover;
             border-radius: 30%;
-            box-shadow: 0 8px 8px 0 rgba(0, 238, 255, 0.2), 0 8px 20px 0 rgba(3, 49, 255, 0.19);
+            box-shadow: 0 8px 8px 0 rgba(0, 238, 255, 0.2), 0 7px 20px 0 rgba(3, 49, 255, 0.19);
         }
 
         .tymbooker_name{
@@ -41,7 +41,8 @@
             font-weight: 600;
         }
         .date{
-            font-size: 16px;
+            font-size: 20px;
+            font-style:italic;
         }
         .pending{
             color: #f05e23;
