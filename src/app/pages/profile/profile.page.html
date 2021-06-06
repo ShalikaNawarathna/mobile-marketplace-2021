@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar color="secondary">
+  <ion-toolbar color="tertiary">
    
-    <ion-title>Profile</ion-title>
+    <ion-title style="text-align: center;">Profile</ion-title>
     <ion-buttons slot="end">
       
       <ion-option><ion-button (click)="CreatePopover()" color="primary"> <ion-icon name="log-out-outline"></ion-icon></ion-button></ion-option>
@@ -28,14 +28,27 @@
         <ion-label >Phone Number: </ion-label><ion-label>{{data.phone}}</ion-label>
       </ion-item>
     </ion-list>
+    <br>
     
-    
+    <div style="text-align: center;">
+      <input type="file" (change)="showPreview($event)" class="custom-file-input"> <br>
+      <div >
+        <ion-button (click)="save()" [class.button-disabled]="choose()" color="tertiary" >  Change It</ion-button>
+      </div>
+
+     </div>
+     <br><br>
+      
+    <div  class="login-logo" *ngFor="let note of (user|async)" style="text-align: center;" >
+      <img src="{{note.imageuri}}" class="logo_icon">f
+   </div>
+
 
   </div>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="editProfilePage()">
-    <ion-fab-button color="secondary">
-      <ion-icon name="pencil-outline" mode="md"></ion-icon>
+    <ion-fab-button color="tertiary">
+      <ion-icon name="pencil-outline" mode="md" color="tertiary"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 

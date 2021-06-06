@@ -15,6 +15,15 @@ export class ProfilePage implements OnInit {
   user;
   data;
 
+  selectedImage: any = null;
+  url:string;
+  id:string;
+  file:string;
+  oc:string;
+  uploading:string;
+  imageuri:string;
+  static username:string;
+
   constructor(private authSvc:AuthenticationService,
     private dataSvc: DataAccessService,
     private router: Router, 
@@ -31,6 +40,15 @@ export class ProfilePage implements OnInit {
      }
 
   ngOnInit() {
+  }
+  showPreview(event: any) {
+    this.selectedImage = event.target.files[0];
+  }
+  choose(){
+    if(this.selectedImage!=null){
+      return false;
+    }
+    return true;
   }
 
   onSignOut(){
