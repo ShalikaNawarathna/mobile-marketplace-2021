@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar color="secondary">
+  <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
       <ion-back-button mode="md" text=""></ion-back-button>
     </ion-buttons>
-    <ion-title>Edit Profile</ion-title>
+    <ion-title style="text-align: center;">Edit Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,7 +14,7 @@
         <label>First Name</label><ion-input type="text"  formControlName="firstname" placeholder="First Name"></ion-input>
         <label>Last Name</label><ion-input type="text"  formControlName="lastname" placeholder="Last Name"></ion-input>
         <label>Phone Number</label><ion-input type="number"  formControlName="phone" placeholder="Phone Number"></ion-input>
-        <ion-button (click)="onClickSave()"  expand="block">
+        <ion-button (click)="onClickSave()"  expand="block" style="text-align: center;" color="tertiary">
           Update Profile
         </ion-button>
     </form>
