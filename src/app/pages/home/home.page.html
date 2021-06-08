@@ -10,28 +10,31 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-
-  <ion-list *ngFor="let note of (notes|async)">
-    <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>
+<ion-content class="padding" color="light">
+  <div class="main_content_div">
+  <ion-list *ngFor="let note of (notes|async)" color = "dark">
+    <ion-card color="light">  
+    <ion-card-header color="light">
+      <ion-card-subtitle color="light">
         {{note.title}}
        
       </ion-card-subtitle>
-      <ion-item lines="none">
+      <ion-item lines="none" color="light">
         <ion-icon name="clipboard-outline"></ion-icon>
-        <ion-label>{{note.description}}</ion-label>
-        <ion-label>{{note.price}}</ion-label>
+        <div style="padding-left: 10px;">
+        <ion-label color="light" class = "date">{{note.description}}</ion-label>
+        <ion-label color="light" class = "date">{{note.price}}</ion-label>
+      </div>
       </ion-item>
     </ion-card-header>
-   
+  
   </ion-card>
+
   </ion-list>
 
 
 
 
 
-
+</div>
 </ion-content>
