@@ -1,1 +1,27 @@
-
+<ion-app>
+  <ion-header>
+    <ion-toolbar color="medium">
+      <ion-buttons slot="start">
+        <ion-back-button mode="md" text=""></ion-back-button>
+      </ion-buttons>
+      <ion-title style="text-align: center;">Add Listing</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="padding" color = "light">
+    <div class="main_content_div">
+     
+    
+        <div class="div_form" color = "light">
+             
+            <ion-input type="text"  [(ngModel)]="data.title" placeholder="Title"></ion-input>
+            <ion-textarea rows="7" [(ngModel)]="data.description"  placeholder="Description"></ion-textarea>
+            <ion-input type="text" [(ngModel)]="data.price" placeholder="Price"></ion-input>
+            <ion-button (click)="onClickSave()"  expand="block">
+              Save
+            </ion-button>
+        
+        </div>
+  </div>
+  </ion-content>
+  </ion-app>
