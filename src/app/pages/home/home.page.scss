@@ -1,12 +1,11 @@
 .main_content_div{
     width: 100%;
     padding: 20px;
-    background-color: rgba(255, 0, 0, 0.2);
+    background-color: rgba(146, 0, 0, 0.2);
     
     ion-label {
-        font-weight: 350;
         display: block;
-        color: #f13ac4;
+        color: #be008ffa;
         padding-left: 20px;
         
 
@@ -14,13 +13,13 @@
     ion-card-subtitle{
         font-weight: 650;
         font-size: 30px;
-        color :rgba(0, 195, 255, 0.925);
+        color :rgba(37, 136, 167, 0.925);
         
     }
     ion-card{
 
         border-radius: 50px;
-        box-shadow: 0px 9px 9px rgba(255, 0, 0, 0.2);
+        box-shadow: 0px 9px 9px rgba(148, 0, 0, 0.733);
         margin-top: 50px;
         position: relative;
 
@@ -36,6 +35,7 @@
 
         
         .date{
+            font-weight: 450;
             font-size: 20px;
             font-style:italic;
         }

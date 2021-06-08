@@ -1,9 +1,13 @@
 .main_content_div{
     width: 100%;
+    background-color: rgba(255, 0, 0, 0.2);
     .div_form{
        
+        padding-top: 20px;
         padding-left: 20px;
         padding-right: 20px;
+        padding-bottom: 175px;
+
 
         .salon_pic{
             width: 100px;
@@ -26,23 +30,27 @@
         }
 
         ion-input{
-            border-radius: 5px;
-            background: #f3f3f3;
+            border-radius: 30px;
+            box-shadow: 0px 9px 9px rgba(238, 27, 210, 0.404);
+            background: #e89cffcb;
+            font-weight: 350;
             height: 40px;
             --padding-start: 8px;
             margin-bottom: 15px;
         }
 
         ion-textarea{
-            border-radius: 5px;
-            background: #f3f3f3;
+            border-radius: 30px;
+            box-shadow: 0px 9px 9px rgba(238, 27, 210, 0.404);
+            background: #e89cffcb;
             margin-bottom: 15px;
 
         }
 
         ion-button{
-            --background: var(--ion-color-secondary);
-            font-weight: 600;
+            /*--background: var(--ion-color-primary);*/
+            --background: rgba(255, 0, 191, 0.705);
+            font-weight: 750;
             color: white;
             --border-radius: 5px;
         }
@@ -63,7 +71,7 @@
             
         }
     }
-
+    
     .tymbookerThumb{
         background-position: center;
         background-repeat: no-repeat;
