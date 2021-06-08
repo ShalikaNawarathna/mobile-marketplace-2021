@@ -1,22 +1,29 @@
 .main_content_div{
     width: 100%;
     padding: 20px;
-
+    background-color: rgba(255, 0, 0, 0.2);
+    
     ion-label {
+        font-weight: 350;
         display: block;
-        color: #ffa7e9;
-    }
-    .header_lbl{
-        font-weight: 700;
+        color: #f13ac4;
+        padding-left: 20px;
+        
+
+    }   
+    ion-card-subtitle{
+        font-weight: 650;
         font-size: 30px;
-        margin-bottom: 50px;
+        color :rgba(0, 195, 255, 0.925);
+        
     }
-    .card_div2{
+    ion-card{
 
         border-radius: 50px;
-        box-shadow: 0px 7px 7px rgba(255, 0, 0, 0.2);
+        box-shadow: 0px 9px 9px rgba(255, 0, 0, 0.2);
         margin-top: 50px;
         position: relative;
+
 
 
         padding-top:20px;
@@ -25,27 +32,15 @@
         display: flex;
         flex-direction: row;
         height: 150px;
-        .tymbooker_image{
-            height: 120px;
-            width: 120px;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            border-radius: 30%;
-            box-shadow: 0 8px 8px 0 rgba(0, 238, 255, 0.2), 0 7px 20px 0 rgba(3, 49, 255, 0.19);
-        }
+    
 
-        .tymbooker_name{
-            color: var(--ion-color-primary);
-            font-size: 25px;
-            font-weight: 600;
-        }
+        
         .date{
             font-size: 20px;
             font-style:italic;
         }
         .pending{
-            color: #f05e23;
+            color: rgba(167, 0, 0, 0.753);
             font-weight: 600;
         }
         .accepted{
@@ -53,7 +48,7 @@
             font-weight: 600;
         }
         .canceled{
-            color: red;
+            color: rgba(167, 0, 0, 0.753);
             font-weight: 600;
         }
         .new{
@@ -66,7 +61,7 @@
             top: 0;
             background: var(--ion-color-secondary);
             padding: 5px 10px;
-            color: white;
+            color: rgba(167, 0, 0, 0.753);
             font-weight: 600;
             border-bottom-left-radius: 20px;
             border-top-right-radius: 10px;         
@@ -74,11 +69,11 @@
     }
 
 }
-
-.ioncontent {
+.ioncontent{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 80vh;
+    
   }
