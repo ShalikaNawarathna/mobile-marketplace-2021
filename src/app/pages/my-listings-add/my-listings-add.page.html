@@ -8,15 +8,16 @@
     </ion-toolbar>
   </ion-header>
   
+  
   <ion-content>
     <div class="main_content_div">
      
     
         <div class="div_form">
-             
-            <ion-input type="text"  [(ngModel)]="data.title" placeholder="Title"></ion-input>
-            <ion-textarea rows="6" [(ngModel)]="data.description"  placeholder="Description"></ion-textarea>
-            <ion-input type="text" [(ngModel)]="data.price" placeholder="Price"></ion-input>
+             <br><br>
+            <ion-input type="text"  [(ngModel)]="data.title" placeholder="Title"></ion-input> <br>
+            <ion-textarea rows="6" [(ngModel)]="data.description"  placeholder="Description of Item"></ion-textarea><br>
+            <ion-input type="text" [(ngModel)]="data.price" placeholder="Price"></ion-input> <br>
             <ion-button (click)="onClickSave()"  expand="block" color="tertiary">
               Save
             </ion-button>

@@ -53,6 +53,7 @@ ion-item{
 
 .createAcc{
    text-align: center;
+   font-style: oblique;
    .registerTag{
         color: var(--ion-color-secondary);
         font-weight: bold;
@@ -61,6 +62,18 @@ ion-item{
 .forget
 {
     text-align: center;
+}
+.forget_password
+{
+    text-align: center;
+    //size: 3px;
+    font-weight: bold;
+    color: #000080;
+}
+.signup
+{
+    font-weight: bold;
+    color: #000080;
 }
 
 .error-message1{

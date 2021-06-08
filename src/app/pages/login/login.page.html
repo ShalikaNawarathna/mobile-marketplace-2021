@@ -18,9 +18,13 @@
       </ion-list>
       <ion-row class="ion-no-margin ion-no-padding">
         <ion-col class="ion-no-margin ion-no-padding">
-          <ion-button (click)="onLogin(loginForm)" type="submit" expand="block" color="secondary" class="btn_class">
+          <ion-button (click)="onLogin(loginForm)" type="submit" expand="block" color="tertiary" class="btn_class">
             Login
             </ion-button>
+            <br>
+            <div>
+              <a href="alfk.lk" class="forget_password" style="text-align: center;">Forget Password</a>
+            </div>
   
   
          <label class="errorMessage">{{errorMessage}}</label>
@@ -29,7 +33,8 @@
     </form>
     </ion-card>
   
-    <p (click)="registor()" class="createAcc">Don't You Have An Account?
+    <p (click)="registor()" class="createAcc">Create new Account
+      <br>
     <span class="signup">Sign Up</span>
   </p>
   
