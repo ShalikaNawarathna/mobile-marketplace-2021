@@ -6,6 +6,7 @@ import {PopovercomponentPage} from '../popovercomponent/popovercomponent.page';
 import { DataAccessService } from 'src/app/services/data-access.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { UtilService } from 'src/app/services/util.service';
+import { FirebbaseService } from 'src/app/services/firebbase.service';
 
 @Component({
   selector: 'app-profile-edit',
@@ -13,57 +14,30 @@ import { UtilService } from 'src/app/services/util.service';
   styleUrls: ['./profile-edit.page.scss'],
 })
 export class ProfileEditPage implements OnInit {
+  ngOnInit(): void {
+    this.registration_form = this.formBuilder.group(
+      {
 
-  user;
-  data;
-  editprofile_form: FormGroup;
+        fname: new FormControl('', Validators.compose([])),
+        lname: new FormControl('', Validators.compose([])),
+        pnum: new FormControl('', Validators.compose([]))
 
+      },
 
-  constructor(private authSvc:AuthenticationService,
-    private dataSvc: DataAccessService,
-    private formBuilder:FormBuilder,
-    private router: Router, 
-    private popover:PopoverController,
-    private util: UtilService) { 
-
-      this.editprofile_form = this.formBuilder.group({
-      
-        firstname: new FormControl('', Validators.compose([
-          Validators.required,
-        ])),
-        lastname: new FormControl('', Validators.compose([
-          Validators.required
-        ])),
-        phone: new FormControl('', Validators.compose([
-          Validators.required
-        ])),
-      });
-
-      this.authSvc.getUser().subscribe(user => {
-        this.user = user;
-        console.log(user) 
-      
-       });
-
-    }
-
-  ngOnInit() {
-
+    );
   }
-
-  onClickSave(){
-    let profile ={
-      firstname:this.editprofile_form.value.firstname,
-      lastname:this.editprofile_form.value.lastname,
-      phone:this.editprofile_form.value.phone
-    }
-
-    this.dataSvc.updatefirstName(this.user.uid, profile.firstname);
-    this.dataSvc.updateLastName(this.user.uid, profile.lastname);
-    this.dataSvc.updatePhone(this.user.uid, profile.phone);
-
-    console.log(this.user)
+  registration_form: FormGroup;
+  constructor(
+    private formBuilder: FormBuilder,
+    private fbSerice:FirebbaseService,
+    public router:Router
+  ) { }
+  update(value){
+    this.fbSerice.updateProfile(value.fname, value.lname, value.pnum);
+    console.log("update successfull");
+    this.router.navigateByUrl('tabs/profile');
+  }
+  back(){
     this.router.navigate(['tabs/profile']);
-
-    }
+  }
 }

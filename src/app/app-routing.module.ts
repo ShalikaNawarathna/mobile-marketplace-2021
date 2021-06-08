@@ -5,15 +5,16 @@ import { AuthGuard } from './guard/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule),
+    //canActivate: [AuthGuard]
 
   },
   {
-    path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
-  }
-  ,
+    path: 'tabs',
+    loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule),
+    //canActivate: [AuthGuard]
+
+  },
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
@@ -23,14 +24,8 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
+ 
   {
-    path: 'add-listing',
-    loadChildren: () => import('./pages/my-listings-add/my-listings-add.module').then( m => m.MyListingsAddPageModule)
-  },
-  {
-    path: 'my-listings',
-    loadChildren: () => import('./pages/my-listings/my-listings.module').then( m => m.MyListingsPageModule)
-  },  {
     path: 'popovercomponent',
     loadChildren: () => import('./pages/popovercomponent/popovercomponent.module').then( m => m.PopovercomponentPageModule)
   },

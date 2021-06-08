@@ -4,7 +4,7 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     children: [
       {
@@ -13,7 +13,7 @@ const routes: Routes = [
       },
       {
         path: 'my-listings',
-        loadChildren: () => import('../my-listings/my-listings.module').then(m => m.MyListingsPageModule)
+        loadChildren: () => import('../my-listings-add/my-listings-add.module').then(m => m.MyListingsAddPageModule)
       },
       {
         path: 'profile',

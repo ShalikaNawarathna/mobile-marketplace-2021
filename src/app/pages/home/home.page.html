@@ -4,30 +4,34 @@
     <ion-title style="text-align: center;">Home Page</ion-title>
     <ion-buttons slot="end">
         
-        <ion-option><ion-button (click)="CreatePopover()" color="primary"> <ion-icon name="log-out-outline"></ion-icon></ion-button></ion-option>
+       
         
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="padding" color="dark">
+<ion-content [fullscreen]="true">
 
-  <ion-searchbar animated placeholder="Search Listings" color="medium"></ion-searchbar>
-
-  <div class="main_content_div">
+  <ion-list *ngFor="let note of (notes|async)">
+    <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>
+        {{note.title}}
+       
+      </ion-card-subtitle>
+      <ion-item lines="none">
+        <ion-icon name="clipboard-outline"></ion-icon>
+        <ion-label>{{note.description}}</ion-label>
+        <ion-label>{{note.price}}</ion-label>
+      </ion-item>
+    </ion-card-header>
    
-    <div class="card_div2" *ngFor="let item of data">
-      <div class="tymbooker_image" 
-        [style.backgroundImage]="'url(' +item.photoUrl+ ')'"></div>
-   
-      <div style="padding-left: 10px;">
-        <ion-label class="tymbooker_name">{{item.title}}</ion-label>
-        <ion-label class="date">{{item.description}}</ion-label>
-        <ion-label class="date">{{item.price}}</ion-label>
-      
-      </div>
-    </div>
+  </ion-card>
+  </ion-list>
 
-  </div>
+
+
+
+
 
 </ion-content>

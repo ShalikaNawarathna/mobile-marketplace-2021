@@ -3,6 +3,8 @@ import { Login } from 'src/app/interfaces/login';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { GetuidComponent } from 'src/app/interfaces/GetuidComponent';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -10,53 +12,65 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  email='';
+  password='';
+  errorMessage="";
+  loading: any;
+  constructor(
 
-  login:Login = {email:'', password:''};
-  errorMessage:string = '';
-  constructor(private authService:AuthenticationService,
-    private router:Router) { }
+
+    private router:Router,
+    private authServices: AuthenticationService,
+    public loadingController: LoadingController
+  ) {
+
+    this.loading=this.loadingController;
+
+   }
 
   ngOnInit() {
+
+
   }
 
-  logIn(email, password) {
-    this.authService.SignIn(email, password)
-      .then((res) => {
-        console.log(res);
-        if(res.user && res.user.emailVerified) {
-          console.log(res.user)
-          this.authService.setUserLocal(res.user);
-          
-          this.router.navigate(['']);
-          //this.router.navigate(['/tabs/tab1']);          
-        } else {
-          this.router.navigateByUrl('/register',);
-          //window.alert('Email is not verified')
-          return false;
-        }
-      }).catch((error) => {
-        if(error.code == 'auth/user-not-found'){
-          this.errorMessage = 'There is no user record corresponding to this email. Please try again.';
-  
-        }
-        else if(error.code =='auth/wrong-password'){
-          this.errorMessage = 'Invalid password. Please try again or request a new one via Forgot Password link.';
-          
-        }
-        else{
-          this.errorMessage = error.message;
-        }
-      })
-  }
+
+
 
   onLogin(form:NgForm){
     if(form.valid){
-      this.logIn(form.value.email, form.value.password);
+      
+      this.errorMessage="Please Wait";
+     this.authServices.SignIn(this.email,this.password).then((result)=>{
+      console.log(result);
+      console.log(result.user.uid);
+      GetuidComponent.uid=result.user.uid;
+      if(result.user){
+        if(result.user.emailVerified){
+        console.log(result.user);
+       // console.log("sdfebajdkf");
+        this.router.navigate(['tabs/']);
+        this.errorMessage="";
+
+      }
+      else{
+        this.errorMessage="Confirm Your Email";
+      }
     }
+
+
+    }).catch((err)=>{
+      if(err.code=='auth/user-not-found'){
+        this.errorMessage="Please Registor";
+      }
+      else{
+        this.errorMessage=err.message;
+      }
+    })
+  }
+}
+  registor(){
+this.router.navigateByUrl('/register');
   }
 
-  register() {
-    this.router.navigate(['register']);
-  }
-
+  
 }

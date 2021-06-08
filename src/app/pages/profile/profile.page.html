@@ -4,52 +4,43 @@
     <ion-title style="text-align: center;">Profile</ion-title>
     <ion-buttons slot="end">
       
-      <ion-option><ion-button (click)="CreatePopover()" color="primary"> <ion-icon name="log-out-outline"></ion-icon></ion-button></ion-option>
+   
       
   </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content>
+  
+  <div class="login-logo" *ngFor="let note of (user|async)">
+    <img src="{{note.imageuri}}" class="logo_icon">
 
-  <div class="main_content_div">
-
-    <ion-list>
-      <ion-item>
-        <ion-label >Email:</ion-label><ion-label>{{user.email}}</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label >First Name:</ion-label><ion-label>{{data.firstname}}</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label >Last Name:</ion-label><ion-label>{{data.lastname}}</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label >Phone Number: </ion-label><ion-label>{{data.phone}}</ion-label>
-      </ion-item>
-    </ion-list>
-    <br>
-    
-    <div style="text-align: center;">
-      <input type="file" (change)="showPreview($event)" class="custom-file-input"> <br>
-      <div >
-        <ion-button (click)="save()" [class.button-disabled]="choose()" color="tertiary" >  Change It</ion-button>
-      </div>
-
-     </div>
-     <br><br>
-      
-    <div  class="login-logo" *ngFor="let note of (user|async)" style="text-align: center;" >
-      <img src="{{note.imageuri}}" class="logo_icon">f
-   </div>
 
 
   </div>
+  <div style="text-align: center;">
+    <input type="file" (change)="showPreview($event)" class="custom-file-input">
+<ion-button (click)="save()" [class.button-disabled]="choose()" >Change It</ion-button>
+  </div>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="editProfilePage()">
-    <ion-fab-button color="tertiary">
-      <ion-icon name="pencil-outline" mode="md" color="tertiary"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 
+ 
+
+
+  <div style="text-align: center;">
+    <ion-card>
+    <ion-list *ngFor="let note of (user|async)">
+      <h5>First Name : {{note.fname}}</h5>
+      <h5>Last Name : {{note.lname}}</h5>
+      <h5>Phone Number : {{note.pnum}}</h5>
+
+    </ion-list>
+<ion-button (click)="gotoEdit()">Update Details</ion-button>
+</ion-card>
+  </div>
+
+
+<div>
+  <h1>{{uploading}}</h1>
+</div>
 </ion-content>

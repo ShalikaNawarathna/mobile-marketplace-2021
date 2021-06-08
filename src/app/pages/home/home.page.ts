@@ -3,6 +3,11 @@ import {PopoverController} from '@ionic/angular';
 import {PopovercomponentPage} from '../popovercomponent/popovercomponent.page';
 import { DataAccessService } from 'src/app/services/data-access.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Data, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { FirebbaseService } from 'src/app/services/firebbase.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 //jkuyfkjhgfcjfj
 @Component({
   selector: 'app-home',
@@ -10,33 +15,20 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  user;
-  data;
-  constructor(private popover:PopoverController,
-    private dataSvc:DataAccessService,
-    private authSvc:AuthenticationService) { 
+  public notes:Observable<Data[]>;
+  ngOnInit(): void {
 
-      this.authSvc.getUser().subscribe(user => {
-        this.user = user; 
-        this.dataSvc.getAllListings().subscribe(result=>{
-          console.log(result)
-          this.data = result;
-        })
-      
-       });
-
-    }
-
-  ngOnInit() {
+    this.notes=this.fbSerice.getData();
+    console.log("my listing loadeed");
+  }
+  constructor(
+    private auths:AuthenticationService,
+    private router:Router,
+    private ngFireAuth:AngularFireAuth,
+    private fbSerice:FirebbaseService,     
+    private firestore: AngularFirestore,
+             
+  ){
     
   }
-
-  CreatePopover()
-   {
-    this.popover.create({component:PopovercomponentPage,
-    showBackdrop:false}).then((popoverElement)=>{
-    popoverElement.present();
-    })
-   }
-
 }

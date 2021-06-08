@@ -1,23 +1,36 @@
 <ion-header>
   <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
-      <ion-back-button mode="md" text=""></ion-back-button>
+      <ion-back-button mode="md" text="" (click)="back()"></ion-back-button>
     </ion-buttons>
     <ion-title style="text-align: center;">Edit Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="main_content_div">
-    <div class="div_form">
-      <form [formGroup]="editprofile_form">    
-        <label>First Name</label><ion-input type="text"  formControlName="firstname" placeholder="First Name"></ion-input>
-        <label>Last Name</label><ion-input type="text"  formControlName="lastname" placeholder="Last Name"></ion-input>
-        <label>Phone Number</label><ion-input type="number"  formControlName="phone" placeholder="Phone Number"></ion-input>
-        <ion-button (click)="onClickSave()"  expand="block" style="text-align: center;" color="tertiary">
-          Update Profile
-        </ion-button>
+<ion-content class="ion-padding">
+
+
+  <div class = "emailForm">
+   
+    <form [formGroup]="registration_form">
+      <ion-item lines="full">
+        <ion-label position="floating">First Name</ion-label>
+        <ion-input type="text" formControlName="fname" required></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">Last Name</ion-label>
+        <ion-input type="text" formControlName="lname" required></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">Mobile Number</ion-label>
+        <ion-input type="text" formControlName="pnum" required></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button class="btn_class" [disabled]="!registration_form.valid" color="secondary" type="submit" (click)="update(registration_form.value)" expand="block">Update</ion-button>
+        </ion-col>
+      </ion-row>
+
     </form>
-    </div>
   </div>
 </ion-content>

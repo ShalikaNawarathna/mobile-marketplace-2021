@@ -4,6 +4,15 @@ import { Router } from '@angular/router';
 import {PopoverController} from '@ionic/angular';
 import {PopovercomponentPage} from '../popovercomponent/popovercomponent.page';
 import { DataAccessService } from 'src/app/services/data-access.service';
+import { Observable } from 'rxjs';
+import { Details } from 'src/app/interfaces/Details';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { UserDetailsService } from 'src/app/services/user-details.service';
+import { FirebbaseService } from 'src/app/services/firebbase.service';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { GetuidComponent } from 'src/app/interfaces/GetuidComponent';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-profile',
@@ -11,60 +20,91 @@ import { DataAccessService } from 'src/app/services/data-access.service';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-
-  user;
-  data;
-
+  public user : Observable<Details[]>;
+  imageuri:string;
   selectedImage: any = null;
   url:string;
   id:string;
   file:string;
   oc:string;
   uploading:string;
-  imageuri:string;
+  
   static username:string;
+  ngOnInit(): void {
+    
+  }
+  constructor(private auths:AuthenticationService,
+    private router:Router,
+    private ngFireAuth:AngularFireAuth,
+    private afs:AngularFirestore,
+    private udtl:UserDetailsService,
+    private ff:FirebbaseService,
 
-  constructor(private authSvc:AuthenticationService,
-    private dataSvc: DataAccessService,
-    private router: Router, 
-    private popover:PopoverController) {
+private storage: AngularFireStorage,
 
-      this.authSvc.getUser().subscribe(user => {
-        this.user = user; 
-        this.dataSvc.getProfileData(this.user.uid).subscribe(result=>{
-          console.log(result)
-          this.data = result;
-        })
+
+
+
+    ) {
+
+
+      this.udtl.ngOnInit();
+      console.log("profile page constructor");
+      this.user=this.udtl.getNotes();
+   
+    
+     this.user.subscribe(x => x.forEach(p=>{
+       this.imageuri=p.imageuri;
       
-       });
-     }
+     }))
 
-  ngOnInit() {
-  }
-  showPreview(event: any) {
-    this.selectedImage = event.target.files[0];
-  }
-  choose(){
-    if(this.selectedImage!=null){
-      return false;
     }
-    return true;
-  }
+    gotoEdit(){
+      this.router.navigateByUrl('/profile-edit');
+    }
+    choose(){
+      if(this.selectedImage!=null){
+        return false;
+      }
+      return true;
+    }
+    delete(downloadUrl) {
+      try{
+        return this.storage.storage.refFromURL(downloadUrl).delete();
+      }catch{
+        console.log("no image");
+      }
+  
+    }
 
-  onSignOut(){
-    this.authSvc.SignOut();
-  }
 
-  CreatePopover()
-   {
-    this.popover.create({component:PopovercomponentPage,
-    showBackdrop:false}).then((popoverElement)=>{
-    popoverElement.present();
-    })
-   }
+    save() {
 
-  editProfilePage(){
-    this.router.navigate(['profile-edit']);
-  }
-
+      var name= this.selectedImage.name;
+       console.log(name);
+      
+       this.uploading="uploading your image please wait";
+       this.delete(this.imageuri)
+       console.log(" old image deleted");
+   
+       const fileRef = this.storage.ref(name);
+       this.storage.upload(name, this.selectedImage).snapshotChanges().pipe(
+         finalize(() => {
+           fileRef.getDownloadURL().subscribe((url) => {
+             this.url = url;
+             console.log(UserDetailsService.docid);
+             this.afs.collection('data').doc(GetuidComponent.uid).collection('user_details').doc(UserDetailsService.docid).update({
+               imageuri:url
+             })
+           })
+           this.uploading="";
+   
+         })
+       ).subscribe();
+   
+     }
+     showPreview(event: any) {
+      this.selectedImage = event.target.files[0];
+    }
+  
 }
