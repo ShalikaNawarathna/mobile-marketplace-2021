@@ -28,7 +28,7 @@ img {
   visibility: hidden;
 }
 .custom-file-input::before {
-  content: 'update profile picture';
+  content: 'Select some files';
   display: inline-block;
 
   border: 1px solid #999;
@@ -41,7 +41,6 @@ img {
   text-shadow: 1px 1px #fff;
   font-weight: 700;
   font-size: 10pt;
-
 }
 .custom-file-input:hover::before {
   border-color: black;
