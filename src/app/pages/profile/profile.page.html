@@ -1,10 +1,18 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title *ngFor="let note of (user|async)"><h3>Hi {{note.fname}}</h3></ion-title>
+  <ion-toolbar color = "medium">
+    
+    <ion-title *ngFor="let note of (user|async)" class="user_name"><h3>Hi {{note.fname}}</h3></ion-title>
     <ion-icon name="power-outline" (click)="signout()" slot="end" style="zoom:2.0;"></ion-icon>
+        
+       
+        
+   
+    
 
   </ion-toolbar>
 </ion-header>
+
+
 
 <ion-content>
   <div class="login-logo" *ngFor="let note of (user|async)">

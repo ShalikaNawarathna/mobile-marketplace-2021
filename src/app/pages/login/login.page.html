@@ -4,11 +4,14 @@
       <img src="assets/icon/favicon.png" class="logo_icon">
      
     </div>
+    <div>
+      <h2 class = "head_change">Welcome to Our Store</h2>
+    </div>
     <ion-card>
     <form #loginForm="ngForm">
       <ion-list lines="none">
         <ion-item lines="none">
-        <ion-input [(ngModel)]="email" placeholder="Email" name="email"required></ion-input>
+        <ion-input [(ngModel)]="email" placeholder="Email" name="email" style="font: bold;" required></ion-input>
   
       </ion-item>
       <ion-item lines="none">
@@ -27,15 +30,13 @@
         </ion-col>
       </ion-row>
       <br>
-      <div>
-        <a href="alfk.lk" class="forget_password" style="text-align: center;">Forget Password</a>
-      </div>
-
-    </form>
+   </form>
     </ion-card>
-  
+    <div>
+      <p style="text-align: center;"><a href="alfk.lk" class="forget_password"  target="_blank">Forget Password</a></p>
+    </div>
     <p (click)="registor()" class="createAcc">Create new Account
-      <br>
+      <br> <br>
     <span class="signup">Sign Up</span>
   </p>
   

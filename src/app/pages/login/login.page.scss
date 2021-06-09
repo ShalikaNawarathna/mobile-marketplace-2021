@@ -63,10 +63,21 @@ ion-item{
     margin-right: 5px;
     
 }
+.head_change
+{
+    text-align: center;
+    font-family: serif;
+    font-size: 30px;
+    color: peru;
+    text-decoration: crimson;
+    font-weight: bold;
+}
 
 .createAcc{
    text-align: center;
    font-style: oblique;
+   font-weight: bold;
+   font-size: 15px;
    .registerTag{
         color: var(--ion-color-secondary);
         font-weight: bold;
@@ -83,12 +94,12 @@ ion-item{
     margin-bottom: 10px;
     //size: 3px;
     font-weight: bold;
-    color: #000080;
+    color: seashell;
 }
 .signup
 {
     font-weight: bold;
-    color: #000080;
+    color: seashell;
 }
 
 .error-message1{
