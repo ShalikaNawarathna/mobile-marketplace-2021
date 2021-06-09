@@ -1,9 +1,14 @@
+ion-content{
+    --ion-background-color: #8d013bc0;
+}
 .main_content_div{
     width: 100%;
-    .div_form{
+    .emailForm{
        
         padding-left: 20px;
         padding-right: 20px;
+        border-radius: 15px;
+        background-color: #d4d4d4;
 
         .salon_pic{
             width: 100px;
@@ -15,7 +20,7 @@
             margin: auto;
         }
 
-        .lbl_header{
+        ion-label{
             display: block;
             text-align: center;
             font-weight: 600;
@@ -34,7 +39,7 @@
         }
 
         ion-button{
-            --background: var(--ion-color-secondary);
+            --background:var(--ion-color-tertiary);
             font-weight: 600;
             color: white;
             --border-radius: 5px;
@@ -56,7 +61,7 @@
             
         }
     }
-
+    
     .tymbookerThumb{
         background-position: center;
         background-repeat: no-repeat;
