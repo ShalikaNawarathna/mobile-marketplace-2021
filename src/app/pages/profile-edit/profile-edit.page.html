@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="tertiary">
+  <ion-toolbar color="medium">
     <ion-buttons slot="start">
       <ion-back-button mode="md" text="" (click)="back()"></ion-back-button>
     </ion-buttons>
@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  
 
 
   <div class = "emailForm">
@@ -26,11 +27,12 @@
         <ion-input type="text" formControlName="pnum" required></ion-input>
       </ion-item>
       <ion-row>
-        <ion-col>
+        <ion-col color="secondary">
           <ion-button class="btn_class" [disabled]="!registration_form.valid" color="secondary" type="submit" (click)="update(registration_form.value)" expand="block">Update</ion-button>
         </ion-col>
       </ion-row>
 
     </form>
   </div>
+  
 </ion-content>
