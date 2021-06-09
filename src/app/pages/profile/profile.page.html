@@ -15,6 +15,8 @@
 
 
 <ion-content>
+  <div class="main_content_div">
+
   <div class="login-logo" *ngFor="let note of (user|async)">
     <img src="{{note.imageuri}}" class="logo_icon">
 
@@ -23,7 +25,7 @@
   </div>
   <div style="text-align: center;">
     <input type="file" (change)="showPreview($event)" class="custom-file-input">
-<ion-button (click)="save()" [class.button-disabled]="choose()" >Change It</ion-button>
+<ion-button (click)="save()" [class.button-disabled]="choose()" color = "tertiary" >Change It</ion-button>
   </div>
 
 
@@ -40,5 +42,5 @@
   </div>
 
 
-
+</div>
 </ion-content>
