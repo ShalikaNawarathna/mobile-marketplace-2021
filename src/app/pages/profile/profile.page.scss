@@ -1,3 +1,10 @@
+ion-content{
+  --ion-background-color: #ff52ffe0;
+}
+ion-card{
+  border-radius: 15px;
+  box-shadow: 0px 8px 8px rgba(49, 49, 49, 0.404);
+}
 .login-logo{
   text-align: center;
   margin: auto;
@@ -10,6 +17,7 @@
   .login_icon{
     width: 110px !important;
     border-radius: 50%;
+    box-shadow: 0px 8px 8px rgba(49, 49, 49, 0.404);
   }
   .login_name{
     margin: 10px;
@@ -27,25 +35,30 @@
 
 .logo_icon{
   border-radius: 50%;
+  box-shadow: 0px 8px 8px rgba(49, 49, 49, 0.404);
 }
 img {
   border-radius: 50%;
+  box-shadow: 0px 8px 8px rgba(49, 49, 49, 0.404);
 }
 .custom-file-input::-webkit-file-upload-button {
   visibility: hidden;
+  color: rgb(72, 0, 131);
 }
 .custom-file-input::before {
   content: 'Select some files';
   display: inline-block;
+  background-color: rgba(163, 39, 147, 0.911);
 
-  border: 1px solid #999;
+  border: 1px solid rgba(163, 39, 147, 0.911);
   border-radius: 3px;
   padding: 5px 8px;
   outline: none;
   white-space: nowrap;
-  -webkit-user-select: none;
+  /*-webkit-user-select: none;*/
   cursor: pointer;
-  text-shadow: 1px 1px #fff;
+  text-emphasis-color: rgba(76, 0, 252, 0.911);
+  text-shadow: 1px 1px rgb(175, 175, 175);
   font-weight: 700;
   font-size: 10pt;
 }
